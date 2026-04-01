@@ -1,6 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
-title MS-DOS Prompt
+title MS-DOS Prompt - System Administrator
 
 :START_DOS
 color 07
@@ -13,15 +13,32 @@ echo.
 :: Simulating C:\> prompt
 set /p "cmd_input=C:\Users\%USERNAME%>"
 
-:: Check if the user typed Antivirus.exe
-if /i "%cmd_input%"=="Antivirus.exe" (
-    goto RUN_ANTIVIRUS
+:: Check if the user typed FakeVirusDownloader.exe
+if /i "%cmd_input%"=="FakeVirusDownloader.exe" (
+    goto MATRIX_EFFECT
 ) else (
     echo '%cmd_input%' is not recognized as an internal or external command,
     echo operable program or batch file.
     echo.
     goto PROMPT_DOS
 )
+
+:MATRIX_EFFECT
+cls
+color 0A
+echo [!] ACCESSING REMOTE REPOSITORY...
+timeout /t 2 >nul
+echo [!] DOWNLOADING DATA PACKETS...
+timeout /t 1 >nul
+
+:: Matrix Scrolling Code for ~10 seconds
+set /a count=0
+:matrix_loop
+echo %random%%random%%random%%random%%random%%random%%random%%random%%random%%random%
+set /a count+=1
+if %count% LSS 300 goto matrix_loop
+
+goto RUN_ANTIVIRUS
 
 :RUN_ANTIVIRUS
 cls
