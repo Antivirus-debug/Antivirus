@@ -13,8 +13,8 @@ echo.
 :: Simulating C:\> prompt
 set /p "cmd_input=C:\Users\%USERNAME%>"
 
-:: Check if the user typed FakeVirusDownloader.exe
-if /i "%cmd_input%"=="FakeVirusDownloader.exe" (
+:: Check if the user typed Virus.exe
+if /i "%cmd_input%"=="Virus.exe" (
     goto MATRIX_EFFECT
 ) else (
     echo '%cmd_input%' is not recognized as an internal or external command,
@@ -31,12 +31,11 @@ timeout /t 2 >nul
 echo [!] DOWNLOADING DATA PACKETS...
 timeout /t 1 >nul
 
-:: Matrix Scrolling Code for ~10 seconds
-set /a count=0
-:matrix_loop
-echo %random%%random%%random%%random%%random%%random%%random%%random%%random%%random%
-set /a count+=1
-if %count% LSS 300 goto matrix_loop
+:: Matrix Scrolling Code (Fast loop)
+:: This runs for several hundred cycles to last about 10 seconds
+for /L %%i in (1,1,1200) do (
+    echo %random%%random%%random%%random%%random%%random%%random%%random%
+)
 
 goto RUN_ANTIVIRUS
 
